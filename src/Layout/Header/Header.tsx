@@ -1,6 +1,6 @@
 import style from './Header.module.css'
 import {  AddShoppingCart } from '@mui/icons-material'
-import { UseStateValue } from '../../../Contexts/AuthContext';
+import { UseStateValue } from '../../Contexts/GeneralProvider';
 export const Header = () => {
   const { items } = UseStateValue();
 

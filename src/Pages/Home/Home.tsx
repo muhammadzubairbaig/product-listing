@@ -1,11 +1,11 @@
-// import { Product } from '../../Product/Product/Product'
+import { Product } from '../../Components/Product/Product'
 import { Header } from '../../Layout/Header/Header'
 
 export const Home = () => {
     return (
         <div >
             <Header/>
-            {/* <Product/> */}
+            <Product/>
         </div>
     )
 }

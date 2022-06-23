@@ -1,13 +1,12 @@
 import './App.css';
-import { Home } from './Components/Pages/Home/Home';
-import { Product } from './Components/Pages/Product/Product';
+import { AppRoutes } from './Components/AppRoutes/AppRoutes';
+import { GeneralProvider } from './Contexts/GeneralProvider';
 
 function App() {
   return (
-    <div className="App">
-    <Home/>
-    <Product/>
-    </div>
+      <GeneralProvider>
+        <AppRoutes />
+      </GeneralProvider>
   );
 }
 

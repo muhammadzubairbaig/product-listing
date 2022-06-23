@@ -3,7 +3,7 @@ import style from "./Dropdown.module.css";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { DropdownDto, SelectDto } from "../../../Interface/Interface";
+import { DropdownDto, SelectDto } from "../../Interface/Interface";
 
 export const Dropdown: FC<DropdownDto> = ({ name, options, selectedValue }) => {
 

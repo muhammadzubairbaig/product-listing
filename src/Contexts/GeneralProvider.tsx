@@ -1,9 +1,31 @@
-import  { createContext, useContext, useState } from "react";
+import { createContext, FC, ReactNode, useContext, useState } from "react";
 import App from "../App";
-import { ContextState, ProductDto } from "../Interface/Interface";
+import { ProductDto } from "../Interface/Interface";
+
+export type ContextState = {
+    items: ProductDto[],
+    addToCart: (e: ProductDto[]) => void,
+    removeAllItems: (e: string) => void,
+    removeItem: (e: string) => void,
+}
+
 export const AuthContext = createContext<ContextState | null>(null);
- 
-export const StateContextProvider = () => {
+
+
+/**
+* @props
+*/
+
+interface Props {
+    children: ReactNode;
+}
+
+/**
+ * @name GeneralProvider
+ * @description Provide the global state variables to the application.
+ */
+export const GeneralProvider: FC<Props> = ({ children }: Props) => {
+
 
     const [items, setItems] = useState<ProductDto[]>([]);
 
@@ -31,7 +53,7 @@ export const StateContextProvider = () => {
     }
 
     return <AuthContext.Provider value={ContextState}>
-        <App />
+        {children}
     </AuthContext.Provider>
 }
 

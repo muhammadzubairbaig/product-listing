@@ -1,20 +1,23 @@
 import { Grid } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
-import { UseStateValue } from '../../../Contexts/AuthContext';
-import { ProductDto } from '../../../Interface/Interface';
+import { UseStateValue } from '../../Contexts/GeneralProvider';
+import { ProductDto } from '../../Interface/Interface';
 import style from './ProductCard.module.css'
 
 export const ProductCard: FC<ProductDto> = ({ id, img, name, price, colour }) => {
 
     const { addToCart, items, removeItem, removeAllItems } = UseStateValue();
     const [cartItem, setCartItem] = useState<ProductDto[]>([]);
-
+    const [counter, setCouter] = useState(0);
     const addToBasket = () => {
-        addToCart([{ id, name, img, price, colour }]);
+
+        setCouter(counter > 0 ? counter - 1 : 0)
+
+        // addToCart([{ id, name, img, price, colour }]);
     };
 
     useEffect(() => {
-        let filteredItems:ProductDto[] = items.filter((res: ProductDto) => res.id === id);
+        let filteredItems: ProductDto[] = items.filter((res: ProductDto) => res.id === id);
         setCartItem(filteredItems)
     }, [items, id])
 
@@ -52,7 +55,8 @@ export const ProductCard: FC<ProductDto> = ({ id, img, name, price, colour }) =>
                         <div className={`${style.qtyAvailable}`}>Qty</div>
                         <div className={`${style.pointer} ${style.remove}`} onClick={handleRemoveAllItems}>Remove</div>
                     </div>
-                    <button className={`${style.pointer} ${style.btn}`} onClick={addToBasket}>+</button>
+                    <button className={`${style.pointer} ${style.btn}`} 
+                    id='decrement-btn' onClick={addToBasket}>+</button>
                 </div>
             </Grid>
 

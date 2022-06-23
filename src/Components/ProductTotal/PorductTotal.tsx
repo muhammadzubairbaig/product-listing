@@ -1,5 +1,5 @@
-import { UseStateValue } from "../../../Contexts/AuthContext";
-import { ProductDto } from "../../../Interface/Interface";
+import { UseStateValue } from "../../Contexts/GeneralProvider";
+import { ProductDto } from "../../Interface/Interface";
 import style from './ProductTotal.module.css'
 
 export const ProductTotal = () => {

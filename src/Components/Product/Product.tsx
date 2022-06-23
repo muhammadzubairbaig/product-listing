@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { ProductDto } from '../../../Interface/Interface';
-import { Axios, GetProducts } from '../../../Services/HttpService';
-import { Dropdown } from '../../Layout/Dropdown/Dropdown';
-import { Spinner } from '../../Layout/Spinner/Spinner';
-import { NoProduct } from '../NoProduct/NoProduct';
+import { ProductDto } from '../../Interface/Interface';
+import { Dropdown } from '../Dropdown/Dropdown';
+import { Spinner } from '../Spinner/Spinner';
+import { NotFound } from '../NotFound/NotFound';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { ProductTotal } from '../ProductTotal/PorductTotal';
 import style from './Product.module.css'
+import { ProductApiService } from '../../Services/ProductApiService/ProductApiService';
 
 export const Product = () => {
 
@@ -23,7 +23,7 @@ export const Product = () => {
 
     const getProducts = async () => {
         try {
-            const response = await Axios(GetProducts);
+            const response = await ProductApiService.getProducts();
             setIsLoading(false);
             setProduct(response.data);
             setFilteredProducts(response.data);
@@ -62,7 +62,7 @@ export const Product = () => {
                 <div className={style.justifyCenter}>
                     {isLoading ? <Spinner /> : null}
                 </div>
-                {products.length === 0 && !isLoading ? <NoProduct /> : products.map((product: ProductDto, i: number) =>
+                {products.length === 0 && !isLoading ? <NotFound /> : products.map((product: ProductDto, i: number) =>
                     <ProductCard
                         id={product.id}
                         key={i}

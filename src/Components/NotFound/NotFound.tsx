@@ -1,6 +1,6 @@
-import style from "./NoProduct.module.css";
+import style from "./NotFound.module.css";
 
-export const NoProduct = () => {
+export const NotFound = () => {
     return (
         <div className={style.no__product}>
             <div className={style.cart}>
