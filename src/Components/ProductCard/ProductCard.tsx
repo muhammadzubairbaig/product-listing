@@ -8,12 +8,9 @@ export const ProductCard: FC<ProductDto> = ({ id, img, name, price, colour }) =>
 
     const { addToCart, items, removeItem, removeAllItems } = UseStateValue();
     const [cartItem, setCartItem] = useState<ProductDto[]>([]);
-    const [counter, setCouter] = useState(0);
+    
     const addToBasket = () => {
-
-        setCouter(counter > 0 ? counter - 1 : 0)
-
-        // addToCart([{ id, name, img, price, colour }]);
+        addToCart([{ id, name, img, price, colour }]);
     };
 
     useEffect(() => {

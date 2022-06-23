@@ -1,5 +1,4 @@
 import { createContext, FC, ReactNode, useContext, useState } from "react";
-import App from "../App";
 import { ProductDto } from "../Interface/Interface";
 
 export type ContextState = {
