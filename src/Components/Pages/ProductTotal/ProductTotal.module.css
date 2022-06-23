@@ -1,0 +1,19 @@
+   /* SUBTOTAL STYLING  */
+   .subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 1px 1px 10px #888888;
+    border-radius: 3px;
+    width: 200px;
+    height: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .subtotal{
+      margin-bottom: 30px !important;
+      margin-top: 20px !important;
+    }
+  }

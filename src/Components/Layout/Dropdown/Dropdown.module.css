@@ -1,0 +1,10 @@
+
+.colourFilter{
+    width: 250px;
+    margin-bottom: 30px !important;
+  }
+  @media (max-width: 600px) {
+    .colourFilter{
+      margin-bottom: 0px !important;
+    }
+  }
